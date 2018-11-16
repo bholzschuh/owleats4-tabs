@@ -4,6 +4,10 @@
     <ion-router-outlet name="home"></ion-router-outlet>
   </ion-tab>
 
+  <ion-tab tab="reviews">
+    <ion-router-outlet name="reviews"></ion-router-outlet>
+  </ion-tab>
+
   <ion-tab tab="profile">
     <ion-router-outlet name="profile"></ion-router-outlet>
   </ion-tab>
@@ -17,6 +21,11 @@
     <ion-tab-button tab="home" href="/members/tabs/(home:home)">
       <ion-icon name="ios-restaurant"></ion-icon>
       <ion-label>Restaurants</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="reviews" href="/members/tabs/(reviews:reviews)">
+      <ion-icon name="ios-star"></ion-icon>
+      <ion-label>Reviews</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="profile" href="/members/tabs/(profile:profile)">
