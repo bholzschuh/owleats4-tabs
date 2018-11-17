@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 import { ItemviewService } from '../../services/itemview.service';
 import { Item } from '../../models/item';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-itemview',
@@ -17,6 +20,8 @@ export class ItemviewPage implements OnInit {
   constructor(
     private routerAct: ActivatedRoute,
     private itemservice: ItemviewService,
+    private cartservice: CartService,
+    public toastController: ToastController
   ) { }
 
   ngOnInit() {
@@ -29,4 +34,20 @@ export class ItemviewPage implements OnInit {
     })
   }
 
-}
+  addItem() {
+
+      this.cartservice.addItems(this.item,this.rid);
+
+      this.presentToast();
+
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: this.item.name + ' has been added to the cart.',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  }
