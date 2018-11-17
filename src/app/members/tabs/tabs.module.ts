@@ -9,6 +9,7 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 import { TabsPage } from './tabs.page';
 import { MenuPageModule } from '../menu/menu.module';
 import { ItemviewPageModule } from '../itemview/itemview.module';
+import { ReviewsPageModule } from '../reviews/reviews.module';
 import { CartPageModule } from '../cart/cart.module';
 import { ProfilePageModule } from '../profile/profile.module';
 import { RestaurantsPageModule } from '../restaurants/restaurants.module';
@@ -24,6 +25,7 @@ import { RestaurantsPageModule } from '../restaurants/restaurants.module';
     CartPageModule,
     MenuPageModule,
     ItemviewPageModule,
+    ReviewsPageModule,
   ],
   declarations: [TabsPage]
 })

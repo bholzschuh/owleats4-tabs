@@ -7,6 +7,7 @@ import { RestaurantsPage } from '../restaurants/restaurants.page';
 import { CartPage } from '../cart/cart.page';
 import { MenuPage } from '../menu/menu.page';
 import { ItemviewPage } from '../itemview/itemview.page';
+import { ReviewsPage } from '../reviews/reviews.page';
 
 const routes: Routes = [
   {
@@ -34,6 +35,11 @@ const routes: Routes = [
         component: ItemviewPage
       },
       {
+        path: 'reviews',
+        outlet: 'reviews',
+        component: ReviewsPage
+      },
+      {
         path: 'profile',
         outlet: 'profile',
         component: ProfilePage
@@ -47,7 +53,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'tabs/(restaurants:home)',
+    redirectTo: 'tabs/(home:home)',
     pathMatch: 'full'
   }
 ];
