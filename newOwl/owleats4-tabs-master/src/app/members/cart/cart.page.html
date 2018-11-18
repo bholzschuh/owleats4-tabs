@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div *ngFor="let cart of carts | async">
+        <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{cart.cid}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>Item list here.</ion-card-content>
+          </ion-card>
+      </div>
+    
+  <div>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Hello</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>Description of the restaurant</ion-card-content>
+      </ion-card>
+    </div>
+  
+  </ion-content>
