@@ -27,7 +27,10 @@ export class LoginPage implements OnInit {
     this.authservice.login(value)
       .then(res => {
         this.message = res;
-        this.user = {} as UserRegister;
+        if (!res) {
+          this.message = "";
+          this.user = {} as UserRegister;
+        }
       });
   }
 
