@@ -12,7 +12,17 @@
             <ion-card-header>
               <ion-card-title>{{cart.rname}}</ion-card-title>
             </ion-card-header>
-            <ion-card-content>Item list here.</ion-card-content>
+            <ion-card-content>
+
+              <ion-list *ngFor="let item of items | async">
+                <ion-item>
+                  <ion-label>
+                    {{item.name}}
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+
+            </ion-card-content>
           </ion-card>
       </div>
   
