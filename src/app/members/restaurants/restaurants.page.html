@@ -1,18 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Restaurants</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
 
   <div *ngFor="let vendor of vendors | async">
     <ion-card (click)=getMenu(vendor) mode="md">
       <ion-img class="pics" [src]="vendor.url"></ion-img>
-      <ion-card-header>
-        <ion-card-title>{{vendor.name}}</ion-card-title>
+      <ion-card-header mode="md">
+        <ion-card-title mode="md">{{vendor.name}}</ion-card-title>
       </ion-card-header>
-      <ion-card-content>Description of the restaurant</ion-card-content>
+      <ion-card-content mode="md">{{vendor.description}}</ion-card-content>
     </ion-card>
   </div>
 
