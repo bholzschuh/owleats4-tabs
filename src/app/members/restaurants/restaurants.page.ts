@@ -23,9 +23,9 @@ export class RestaurantsPage implements OnInit {
     this.vendors = this.menuservice.getVendors();
   }
 
-  getMenu(rid) {
-    console.log(rid);
-    let url = 'members/tabs/(home:menu/' + rid + ')';
+  getMenu(vendor) {
+    console.log(vendor);
+    let url = 'members/tabs/(home:menu/' + vendor.rid + "/" + vendor.name + ')';
     this.route.navigateByUrl(url);
   }
 

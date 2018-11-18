@@ -7,7 +7,7 @@
 <ion-content padding>
 
   <div *ngFor="let vendor of vendors | async">
-    <ion-card (click)=getMenu(vendor.rid)>
+    <ion-card (click)=getMenu(vendor)>
       <ion-img [src]="vendor.url"></ion-img>
       <ion-card-header>
         <ion-card-title>{{vendor.name}}</ion-card-title>

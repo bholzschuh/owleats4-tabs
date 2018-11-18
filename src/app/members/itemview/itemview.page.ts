@@ -15,6 +15,7 @@ export class ItemviewPage implements OnInit {
 
   rid: string;
   iid: string;
+  rname: string;
   item = {} as Item;
 
   constructor(
@@ -26,6 +27,7 @@ export class ItemviewPage implements OnInit {
 
   ngOnInit() {
     this.rid = this.routerAct.snapshot.paramMap.get('rid');
+    this.rname = this.routerAct.snapshot.paramMap.get('rname');
     this.iid = this.routerAct.snapshot.paramMap.get('iid');
     //console.log('rid: ' + this.rid + ' iid: ' + this.iid);
     this.itemservice.getItemInfo(this.rid, this.iid).subscribe(res => {
@@ -36,9 +38,9 @@ export class ItemviewPage implements OnInit {
 
   addItem() {
 
-      this.cartservice.addItems(this.item,this.rid);
+    this.cartservice.addItems(this.item, this.rid, this.rname);
 
-      this.presentToast();
+    this.presentToast();
 
   }
 
@@ -50,4 +52,4 @@ export class ItemviewPage implements OnInit {
     toast.present();
   }
 
-  }
+}

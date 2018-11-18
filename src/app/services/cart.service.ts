@@ -6,45 +6,45 @@ import { BehaviorSubject } from 'rxjs';
 import { Platform } from '@ionic/angular';
 
 @Injectable({
-  providedIn: 'root'
+        providedIn: 'root'
 })
 export class CartService {
 
-    item = {} as Item;
+        item = {} as Item;
 
 
-    constructor(private afS: AngularFirestore,
+        constructor(private afS: AngularFirestore,
                 private auth: AuthService) { }
 
-   addItems(item,rid){
+        addItems(item, rid, rname) {
 
-           let uid = this.auth.getUID();
+                let uid = this.auth.getUID();
 
-        var data = {
-                name: item.name,
-                cost: item.cost,
-                pic: item.url
-            };
-    
-            this.afS.collection("users/" + uid + "/carts/" + rid + "/items/").add(data);
+                var data = {
+                        name: item.name,
+                        cost: item.cost,
+                        pic: item.url
+                };
 
-
-   }
+                this.afS.collection("users/" + uid + "/carts/" + rid + "/items/").add(data);
 
 
-/*
-        var data = {
-            name: item.name,
-            cost: item.cost,
-        };
+        }
 
-        this.afS.collection("carts").add(data);
 
-                const id = this.afS.createId();
-
-        return this.afS.doc('cart/${id}').set(item);
-
-*/
+        /*
+                var data = {
+                    name: item.name,
+                    cost: item.cost,
+                };
+        
+                this.afS.collection("carts").add(data);
+        
+                        const id = this.afS.createId();
+        
+                return this.afS.doc('cart/${id}').set(item);
+        
+        */
 
         /*
         this.item.name = item.name;
