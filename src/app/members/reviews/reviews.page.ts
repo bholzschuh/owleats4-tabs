@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reviews',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewsPage implements OnInit {
 
-  constructor() { }
+  rname: string;
+  rid: string;
+
+  constructor(
+    private routerAct: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.rname = this.routerAct.snapshot.paramMap.get('rname');
+    this.rid = this.routerAct.snapshot.paramMap.get('rid');
   }
 
 }

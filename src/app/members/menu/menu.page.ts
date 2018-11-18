@@ -34,4 +34,10 @@ export class MenuPage implements OnInit {
     this.route.navigateByUrl(url);
   }
 
+  getReviews() {
+    console.log("Reviews");
+    let url = "/members/tabs/(home:reviews/" + this.rid + "/" + this.rname + ")";
+    this.route.navigateByUrl(url);
+  }
+
 }

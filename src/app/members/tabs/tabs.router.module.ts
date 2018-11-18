@@ -35,6 +35,11 @@ const routes: Routes = [
         component: ItemviewPage
       },
       {
+        path: 'reviews/:rid/:rname',
+        outlet: 'home',
+        component: ReviewsPage
+      },
+      {
         path: 'reviews',
         outlet: 'reviews',
         component: ReviewsPage
