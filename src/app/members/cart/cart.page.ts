@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from '../../services/menu.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Cart } from '../../models/cart';
+import { CartService } from '../../services/cart.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +13,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartPage implements OnInit {
 
-  constructor() { }
+  rid: string;
+
+  constructor(
+    private cartservice: CartService,
+  ) { }
+
+  carts: Observable<Cart[]>;
 
   ngOnInit() {
+  
+      this.carts = this.cartservice.getCarts();
+      this.cartservice.getCarts().subscribe(val => console.log(val));
+  
+    }
+   
   }
 
-}
+

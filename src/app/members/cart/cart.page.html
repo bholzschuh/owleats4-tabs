@@ -6,4 +6,14 @@
 
 <ion-content padding>
 
-</ion-content>
+  Open orders:
+    <div *ngFor="let cart of carts | async">
+        <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{cart.rname}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>Item list here.</ion-card-content>
+          </ion-card>
+      </div>
+  
+  </ion-content>

@@ -37,11 +37,8 @@ export class ItemviewPage implements OnInit {
   }
 
   addItem() {
-
     this.cartservice.addItems(this.item, this.rid, this.rname);
-
     this.presentToast();
-
   }
 
   async presentToast() {
