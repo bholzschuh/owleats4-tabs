@@ -29,19 +29,14 @@ export class ItemviewPage implements OnInit {
     this.rid = this.routerAct.snapshot.paramMap.get('rid');
     this.rname = this.routerAct.snapshot.paramMap.get('rname');
     this.iid = this.routerAct.snapshot.paramMap.get('iid');
-    //console.log('rid: ' + this.rid + ' iid: ' + this.iid);
     this.itemservice.getItemInfo(this.rid, this.iid).subscribe(res => {
       this.item = res;
-      //console.log(this.item);
     })
   }
 
   addItem() {
-
     this.cartservice.addItems(this.item, this.rid, this.rname);
-
     this.presentToast();
-
   }
 
   async presentToast() {
