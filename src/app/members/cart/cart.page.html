@@ -1,17 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>cart</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
 
   Open orders:
   <div *ngFor="let cart of carts | async">
-    <ion-card>
+    <ion-card mode="md">
       <ion-card-header>
-        <ion-card-title>{{cart.rname}}</ion-card-title>
+        <ion-card-title mode="md">{{cart.rname}}</ion-card-title>
       </ion-card-header>
+
       <ion-card-content>
 
         <ion-list *ngFor="let item of items | async">
@@ -23,6 +18,7 @@
         </ion-list>
 
       </ion-card-content>
+
     </ion-card>
   </div>
 

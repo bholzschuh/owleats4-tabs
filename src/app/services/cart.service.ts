@@ -9,54 +9,52 @@ import { AuthService } from '../../app/services/auth.service';
 })
 export class CartService {
 
-    item = {} as Item;
-    cart = {} as Cart;
+  item = {} as Item;
+  cart = {} as Cart;
+  uid: string;
 
-    itemsCollection: AngularFirestoreCollection<Item>;
-    cartsCollection: AngularFirestoreCollection<Cart>;
+  itemsCollection: AngularFirestoreCollection<Item>;
+  cartsCollection: AngularFirestoreCollection<Cart>;
 
-    constructor(private afS: AngularFirestore,
-                private auth: AuthService,
-                ) { }
+  constructor(
+    private afS: AngularFirestore,
+    private auth: AuthService,
+  ) {
+    this.uid = this.auth.getUID();
+  }
 
-   addItems(item,rid,rname){
+  addItems(item, rid, rname) {
 
-        let uid = this.auth.getUID();
+    var data = {
+      name: item.name,
+      cost: item.cost,
+      description: item.description,
+      url: item.url
+    };
 
-        var data = {
-                name: item.name,
-                cost: item.cost,
-                description: item.description,
-                url: item.url
-            };
+    var data2 = {
+      cid: rid,
+      rname: rname
+    };
 
-            var data2 = {
-                cid: rid,
-                rname: rname
-            };
-    
-            this.afS.collection("users/" + uid + "/carts/" + rid + "/items/").add(data);
-            this.afS.doc("users/" + uid + "/carts/" + rid).set(data2);
+    this.afS.collection("users/" + this.uid + "/carts/" + rid + "/items/").add(data);
+    this.afS.doc("users/" + this.uid + "/carts/" + rid).set(data2);
 
-   }
+  }
 
-   getCarts(){
+  getCarts() {
+    this.cartsCollection = this.afS.collection('users/' + this.uid + '/carts', ref => {
+      return ref.orderBy('rname');
+    });
+    return this.cartsCollection.valueChanges();
+  }
 
-        let uid = this.auth.getUID();
-        this.cartsCollection = this.afS.collection('users/' + uid + '/carts', ref => {
-                return ref.orderBy('rname');
-              });
-              return this.cartsCollection.valueChanges();
-   }
+  getItems(rid) {
 
-   getItems(rid) {
-
-        let uid = this.auth.getUID();
-
-        this.itemsCollection = this.afS.collection('users/' + uid + '/carts/' + rid + '/items', ref => {
-          return ref.orderBy('name');
-        });
-        return this.itemsCollection.valueChanges();
-      }
+    this.itemsCollection = this.afS.collection('users/' + this.uid + '/carts/' + rid + '/items', ref => {
+      return ref.orderBy('name');
+    });
+    return this.itemsCollection.valueChanges();
+  }
 
 }

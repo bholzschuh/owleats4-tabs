@@ -24,15 +24,15 @@ export class CartPage implements OnInit {
 
   ngOnInit() {
 
-      this.carts = this.cartservice.getCarts();
-      this.cartservice.getCarts().subscribe(val => console.log(val));
-      this.items = this.cartservice.getItems(0); 
+    this.carts = this.cartservice.getCarts();
+    this.cartservice.getCarts().subscribe(val => console.log(val));
+    this.items = this.cartservice.getItems(0);
 
-    }
-
-    updateItems(rid){
-      this.items = this.cartservice.getItems(rid); 
-    }
   }
+
+  updateItems(rid) {
+    this.items = this.cartservice.getItems(rid);
+  }
+}
 
 
