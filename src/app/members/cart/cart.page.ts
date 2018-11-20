@@ -17,36 +17,45 @@ export class CartPage implements OnInit {
   carts: Cart[];
   items: Item[];
   filledCarts: any[] = [];
+  firstRun: boolean = true;
 
   constructor(
     private cartservice: CartService,
-    private routerAct: ActivatedRoute,
   ) { }
 
   ngOnInit() {
 
-    this.populateCart();
-  
-  }
-
-  populateCart(){
-
     this.cartservice.getCarts().subscribe(res => {
       this.carts = res;
-
+      
       for(let cart of this.carts){
-        var obc = this.cartservice.getItems(cart.cid);
-
         this.cartservice.getItems(cart.cid).subscribe(res => {
           this.items = res;
           var item = this.items;
-          var arr = {cart,item};
-          this.filledCarts.push(arr);
+          var i = this.search(cart.cid,this.filledCarts);
 
+          if(i == 200)
+            this.filledCarts.push({cart,item});
+          else
+            this.filledCarts[i] = {cart,item};
+          
         })
       }
     })
+  
   }
+
+  search(key, allCarts){
+    for (var i=0; i < allCarts.length; i++) {
+        if (allCarts[i].cart.cid === key) {
+            return i;
+        }
+    }
+    return 200;
+}
+
+
+
 }
 
 
