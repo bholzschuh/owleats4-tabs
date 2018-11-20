@@ -46,12 +46,14 @@ export class CartService {
     this.cartsCollection = this.afS.collection('users/' + this.uid + '/carts', ref => {
       return ref.orderBy('rname');
     });
+
+    
     return this.cartsCollection.valueChanges();
   }
 
-  getItems(rid) {
+  getItems(cid) {
 
-    this.itemsCollection = this.afS.collection('users/' + this.uid + '/carts/' + rid + '/items', ref => {
+    this.itemsCollection = this.afS.collection('users/' + this.uid + '/carts/' + cid + '/items', ref => {
       return ref.orderBy('name');
     });
     return this.itemsCollection.valueChanges();

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../../models/cart';
 import { CartService } from '../../services/cart.service';
@@ -10,12 +10,13 @@ import { Item } from '../../models/item';
   selector: 'app-cart',
   templateUrl: './cart.page.html',
   styleUrls: ['./cart.page.scss'],
+
 })
 export class CartPage implements OnInit {
 
-  rid: string;
-  carts: Observable<Cart[]>;
-  items: Observable<Item[]>;
+  carts: Cart[];
+  items: Item[];
+  filledCarts: any[] = [];
 
   constructor(
     private cartservice: CartService,
@@ -24,14 +25,27 @@ export class CartPage implements OnInit {
 
   ngOnInit() {
 
-    this.carts = this.cartservice.getCarts();
-    this.cartservice.getCarts().subscribe(val => console.log(val));
-    this.items = this.cartservice.getItems(0);
-
+    this.populateCart();
+  
   }
 
-  updateItems(rid) {
-    this.items = this.cartservice.getItems(rid);
+  populateCart(){
+
+    this.cartservice.getCarts().subscribe(res => {
+      this.carts = res;
+
+      for(let cart of this.carts){
+        var obc = this.cartservice.getItems(cart.cid);
+
+        this.cartservice.getItems(cart.cid).subscribe(res => {
+          this.items = res;
+          var item = this.items;
+          var arr = {cart,item};
+          this.filledCarts.push(arr);
+
+        })
+      }
+    })
   }
 }
 
