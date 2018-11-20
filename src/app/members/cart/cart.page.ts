@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-//import { Observable } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../../models/cart';
 import { CartService } from '../../services/cart.service';
 import { Item } from '../../models/item';
-
 
 @Component({
   selector: 'app-cart',
@@ -14,10 +11,7 @@ import { Item } from '../../models/item';
 })
 export class CartPage implements OnInit {
 
-  carts: Cart[];
-  items: Item[];
   filledCarts: any[] = [];
-  firstRun: boolean = true;
 
   constructor(
     private cartservice: CartService,
@@ -26,12 +20,12 @@ export class CartPage implements OnInit {
   ngOnInit() {
 
     this.cartservice.getCarts().subscribe(res => {
-      this.carts = res;
-      
-      for(let cart of this.carts){
+      let carts: Cart[] = res;
+
+      for(let cart of carts){
         this.cartservice.getItems(cart.cid).subscribe(res => {
-          this.items = res;
-          var item = this.items;
+          let items: Item[] = res;
+          var item = items;
           var i = this.search(cart.cid,this.filledCarts);
 
           if(i == 200)
@@ -53,8 +47,6 @@ export class CartPage implements OnInit {
     }
     return 200;
 }
-
-
 
 }
 

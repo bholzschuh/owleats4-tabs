@@ -1,5 +1,8 @@
 <ion-content padding>
   <h2>Open orders:</h2>
+  <div *ngIf="!filledCarts || filledCarts.length === 0">
+      <p>Cart is empty</p>
+  </div>
   <div *ngFor="let cart of filledCarts">
     <ion-card mode="md">
       <ion-card-header>
