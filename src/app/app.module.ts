@@ -15,14 +15,21 @@ import { AngularFireModule } from '@angular/fire';
 
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AddreviewComponent } from './addreview/addreview.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, AddreviewComponent],
+  entryComponents: [
+    AddreviewComponent,
+  ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    FormsModule,
+    ReactiveFormsModule,
     //IonicStorageModule.forRoot(),
   ],
   providers: [

@@ -41,8 +41,10 @@ export class ItemviewPage implements OnInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: this.item.name + ' has been added to the cart.',
-      duration: 2000
+      message: this.item.name + ' added to cart.',
+      duration: 2000,
+      position: 'top',
+      cssClass: "toastAfterHeader",
     });
     toast.present();
   }

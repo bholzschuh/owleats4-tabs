@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Review } from '../../models/review';
 import { ReviewService } from '../../services/review.service';
+import { PopoverController } from '@ionic/angular';
+import { AddreviewComponent } from '../../addreview/addreview.component';
 
 @Component({
   selector: 'app-reviews',
@@ -18,6 +20,7 @@ export class ReviewsPage implements OnInit {
   constructor(
     private routerAct: ActivatedRoute,
     private reviewService: ReviewService,
+    public popoverController: PopoverController,
   ) { }
 
   ngOnInit() {
@@ -26,6 +29,19 @@ export class ReviewsPage implements OnInit {
     this.reviewService.getReviews(this.rid).subscribe(res => {
       console.log(res);
     });
+  }
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: AddreviewComponent,
+      event: ev,
+      translucent: true,
+      componentProps: {
+        rid: this.rid
+      },
+      cssClass: 'popWidth',
+    });
+    return await popover.present();
   }
 
 }

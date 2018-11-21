@@ -23,4 +23,4 @@ const routes: Routes = [
   ],
   declarations: [ReviewsPage]
 })
-export class ReviewsPageModule {}
+export class ReviewsPageModule { }

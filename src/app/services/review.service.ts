@@ -17,4 +17,9 @@ export class ReviewService {
     this.reviewsCollection = this.db.collection('restaurants/' + rid + "/reviews");
     return this.reviewsCollection.valueChanges();
   }
+
+  addReview(rid, review: Review) {
+    console.log(rid + review.uid + review.comment + review.rating);
+    this.db.collection("restaurants/" + rid + "/reviews").add(review);
+  }
 }

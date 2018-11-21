@@ -77,3 +77,15 @@
   --ion-color-light-tint: #f5f6f9;
 
 }
+
+ion-popover{
+  ion-backdrop{
+    opacity: 0.5 !important;
+  }
+  .popover-wrapper{
+    .popover-content{
+      width:90vw;
+      max-width:500px;
+    }
+}
+}
