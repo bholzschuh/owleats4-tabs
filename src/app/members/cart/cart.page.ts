@@ -34,8 +34,7 @@ export class CartPage implements OnInit {
             this.filledCarts[i] = {cart,item};
             console.log(this.filledCarts);
             if(this.filledCarts[i].item.length == 0)
-              this.filledCarts[i] = null;
-              //this.filledCarts.splice(i,1);
+              this.filledCarts.splice(i,1);
               if(this.filledCarts.length == 0)
                 this.filledCarts = [];
         

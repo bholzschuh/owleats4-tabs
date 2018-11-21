@@ -5,11 +5,11 @@
 :root {
 
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #1E3160;
   --ion-color-primary-rgb: 56,128,255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255,255,255;
-  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-shade: #C12037;
   --ion-color-primary-tint: #4c8dff;
 
   /** secondary **/
@@ -76,6 +76,66 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
+  /** primary theme **/
+  $colors: (
+  primary:    #1E3160,
+  secondary:  #C12037,
+  danger:     #F50203,
+  light:      #C3C7CD,
+  dark:       #222
+);
+
+
+.owl-styles1 {
+
+  p { color: map-get($colors, secondary); }
+  a { color: map-get($colors, danger); }
+  
+  h2 { 
+    color: map-get($colors, primary); 
+    font: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .hbutton{
+    color: map-get($colors, danger);
+  }
+
+ion-card-title { color: map-get($colors, secondary);}
+
+ion-card-header {
+  background-color: map-get($colors, primary);
+  color: map-get($colors, primary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font: bolder;
+}
+
+ion-title{
+  color: map-get($colors, primary);
+}
+
+ion-card-content{
+  color: map-get($colors, primary);
+  background: map-get($colors, light);
+}
+
+ion-item > ion-icon { 
+  color: map-get($colors, danger); 
+}
+
+ion-button {
+  color: map-get($colors,light);
+  text-decoration: none;
+  display: inline-block;
+}
+
+//tabs -- missing active tab
+ion-tab-bar{
+  background: map-get($colors, light);
+}
+
+}
+
 }
 
 ion-popover{
@@ -87,5 +147,5 @@ ion-popover{
       width:90vw;
       max-width:500px;
     }
-}
+  }
 }
