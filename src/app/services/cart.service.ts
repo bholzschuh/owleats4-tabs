@@ -23,7 +23,7 @@ export class CartService {
     this.uid = this.auth.getUID();
   }
 
-  addItems(item, rid, rname) {
+  addItems(item, rid, rname, quan) {
 
     var data = {
       name: item.name,
@@ -31,6 +31,7 @@ export class CartService {
       description: item.description,
       url: item.url,
       iid: item.iid,
+      quantity: quan,
     };
 
     var data2 = {
