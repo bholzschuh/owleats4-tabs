@@ -16,6 +16,7 @@ export class ItemviewPage implements OnInit {
   rid: string;
   iid: string;
   rname: string;
+  quantity: string;
   item = {} as Item;
 
   constructor(
@@ -26,6 +27,7 @@ export class ItemviewPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('QUANTITITY: ' + this.quantity);
     this.rid = this.routerAct.snapshot.paramMap.get('rid');
     this.rname = this.routerAct.snapshot.paramMap.get('rname');
     this.iid = this.routerAct.snapshot.paramMap.get('iid');
@@ -34,19 +36,30 @@ export class ItemviewPage implements OnInit {
     })
   }
 
-  addItem() {
-    this.cartservice.addItems(this.item, this.rid, this.rname);
-    this.presentToast();
+  addItem(quantity) {
+    if (!quantity) quantity = 1;
+    console.log('quantitit: ' + quantity);
+    this.cartservice.addItems(this.item, this.rid, this.rname, quantity);
+    this.presentToast(quantity);
   }
 
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: this.item.name + ' added to cart.',
-      duration: 2000,
-      position: 'top',
-      cssClass: "toastAfterHeader",
-    });
-    toast.present();
+  async presentToast(quantity) {
+
+    if (quantity == 1) {
+      const toast = await this.toastController.create({
+        message: '1 ' + this.item.name + ' has been added to the cart.',
+        duration: 1163
+      });
+      toast.present();
+    }
+    else {
+      const toast = await this.toastController.create({
+        message: quantity + ' ' + this.item.name + 's have been added to the cart.',
+        duration: 1163
+      });
+      toast.present();
+    }
+
   }
 
 }

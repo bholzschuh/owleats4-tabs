@@ -12,7 +12,7 @@
         <ion-list *ngFor="let item of cart.item">
           <ion-item>
             <ion-label>
-              {{item.name}}
+                {{item.quantity}} {{item.name}}<span *ngIf="item.quantity > 1">s</span>   
             </ion-label>
             <ion-icon name="close-circle" (click)="remove(item.iid,cart.cart.cid)"></ion-icon>
           </ion-item>
