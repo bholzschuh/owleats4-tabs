@@ -40,11 +40,6 @@ const routes: Routes = [
         component: ReviewsPage
       },
       {
-        path: 'reviews',
-        outlet: 'reviews',
-        component: ReviewsPage
-      },
-      {
         path: 'profile',
         outlet: 'profile',
         component: ProfilePage
