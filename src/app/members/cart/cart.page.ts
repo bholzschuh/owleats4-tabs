@@ -30,8 +30,16 @@ export class CartPage implements OnInit {
 
           if(i == 200)
             this.filledCarts.push({cart,item});
-          else
+          else{
             this.filledCarts[i] = {cart,item};
+            console.log(this.filledCarts);
+            if(this.filledCarts[i].item.length == 0)
+              this.filledCarts[i] = null;
+              //this.filledCarts.splice(i,1);
+              if(this.filledCarts.length == 0)
+                this.filledCarts = [];
+        
+          }
           
         })
       }
@@ -47,6 +55,8 @@ export class CartPage implements OnInit {
     }
     return 200;
 }
+
+remove(itemID, cid){ this.cartservice.deleteItem(itemID, cid);}
 
 }
 

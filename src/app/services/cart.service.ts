@@ -29,7 +29,8 @@ export class CartService {
       name: item.name,
       cost: item.cost,
       description: item.description,
-      url: item.url
+      url: item.url,
+      iid: item.iid,
     };
 
     var data2 = {
@@ -37,9 +38,21 @@ export class CartService {
       rname: rname
     };
 
-    this.afS.collection("users/" + this.uid + "/carts/" + rid + "/items/").add(data);
+    this.afS.collection("users/" + this.uid + "/carts/" + rid + "/items/").doc(item.iid).set(data);
     this.afS.doc("users/" + this.uid + "/carts/" + rid).set(data2);
 
+  }
+
+  deleteItem(itemID,cid){
+
+    this.afS.collection('users/' + this.uid + '/carts/' + cid + '/items').doc(itemID).delete();
+    this.afS.collection('users/' + this.uid + '/carts/' + cid + '/items').get().subscribe(snap => {
+    var size = snap.size;
+      if(size == 0)
+      this.afS.collection('users/' + this.uid + '/carts/').doc(cid).delete();
+
+   });
+   
   }
 
   getCarts() {
@@ -47,7 +60,6 @@ export class CartService {
       return ref.orderBy('rname');
     });
 
-    
     return this.cartsCollection.valueChanges();
   }
 
@@ -56,6 +68,7 @@ export class CartService {
     this.itemsCollection = this.afS.collection('users/' + this.uid + '/carts/' + cid + '/items', ref => {
       return ref.orderBy('name');
     });
+
     return this.itemsCollection.valueChanges();
   }
 
