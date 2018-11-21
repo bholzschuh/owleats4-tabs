@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref=""></ion-back-button>
     </ion-buttons>
-    <ion-title>itemview</ion-title>
+    <ion-title>{{rname}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -35,7 +35,7 @@
         <ion-button>Customize</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button>Add to order</ion-button>
+        <ion-button (click)="addItem()">Add to order</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

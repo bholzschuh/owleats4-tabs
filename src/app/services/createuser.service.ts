@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+
 import { User } from '../models/user';
 
 @Injectable({

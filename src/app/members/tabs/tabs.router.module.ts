@@ -25,14 +25,19 @@ const routes: Routes = [
         component: RestaurantsPage
       },
       {
-        path: 'menu/:rid',
+        path: 'menu/:rid/:rname',
         outlet: 'home',
         component: MenuPage
       },
       {
-        path: 'itemview/:rid/:iid',
+        path: 'itemview/:rid/:rname/:iid',
         outlet: 'home',
         component: ItemviewPage
+      },
+      {
+        path: 'reviews/:rid/:rname',
+        outlet: 'home',
+        component: ReviewsPage
       },
       {
         path: 'reviews',

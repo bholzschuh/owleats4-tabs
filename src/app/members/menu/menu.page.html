@@ -3,7 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="members/tabs/(home:home)"></ion-back-button>
     </ion-buttons>
-    <ion-title>menu</ion-title>
+    <ion-title>{{rname}}</ion-title>
+    <ion-buttons slot="end">
+      <div class="hbutton" (click)=getReviews()>Reviews<ion-icon name="ios-chatbubbles"></ion-icon>
+      </div>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

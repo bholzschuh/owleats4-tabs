@@ -28,6 +28,10 @@ export class RegisterPage implements OnInit {
     this.authservice.registerEmailPass(value)
       .then(res => {
         this.message = res;
+        if (!res) {
+          this.message = "";
+          this.user = {} as UserRegister;
+        }
       });
   }
 

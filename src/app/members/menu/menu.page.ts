@@ -14,6 +14,7 @@ export class MenuPage implements OnInit {
 
   items: Observable<Item[]>;
   rid: string;
+  rname: string;
 
   constructor(
     private menuservice: MenuService,
@@ -22,13 +23,20 @@ export class MenuPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.rid = this.routerAct.snapshot.paramMap.get('rid')
+    this.rid = this.routerAct.snapshot.paramMap.get('rid');
+    this.rname = this.routerAct.snapshot.paramMap.get('rname');
     this.items = this.menuservice.getItems(this.rid);
   }
 
   getItem(iid) {
     console.log(iid);
-    let url = "/members/tabs/(home:itemview/" + this.rid + "/" + iid + ")";
+    let url = "/members/tabs/(home:itemview/" + this.rid + "/" + this.rname + "/" + iid + ")";
+    this.route.navigateByUrl(url);
+  }
+
+  getReviews() {
+    console.log("Reviews");
+    let url = "/members/tabs/(home:reviews/" + this.rid + "/" + this.rname + ")";
     this.route.navigateByUrl(url);
   }
 
