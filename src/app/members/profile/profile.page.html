@@ -1,12 +1,44 @@
-<ion-header class="owl-styles1">
-  <ion-toolbar>
-    <ion-title>Profile</ion-title>
-    <ion-buttons slot="end">
-      <div class="hbutton" (click)=logout()>Logout</div>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding class="owl-styles1">
-  Profile content
+
+  <ion-img src="http://www.fau.edu/publicaffairs/branding/images/university-logo-present.jpg"></ion-img>
+  <ion-card-header class="tc">
+    <ion-card-title>Account Information</ion-card-title>
+  </ion-card-header>
+
+  <ion-item>
+    <ion-textarea position="stacked" placeholder="Student Name"></ion-textarea>
+    <ion-label color="dark">{{user.first}}{{user.last}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-textarea position="stacked" placeholder="E-mail Address"></ion-textarea>
+    <ion-label color="dark">{{user.email}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-textarea position="stacked" placeholder="Z-Number"></ion-textarea>
+    <ion-label color="dark">{{user.znumber}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-textarea position="stacked" placeholder="Phone Number"></ion-textarea>
+    <ion-label color="dark">{{user.phone}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-textarea position="stacked" placeholder="Favorite Restaurant:"></ion-textarea>
+    <ion-select placeholder="Select One" ok-text="Okay" cancel-text="Dismiss">
+      <ion-select-option value="Wendys">Wendy's</ion-select-option>
+      <ion-select-option value="PapaJohns">Papa John's</ion-select-option>
+      <ion-select-option value="ChickNGrill">Chick -N- Grill</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-textarea position="stacked" placeholder="Remaining Owl Bucks balance: "></ion-textarea>
+    <ion-label color="dark">$0</ion-label>
+  </ion-item>
+
+
+  <ion-button expand="block" shape="round" color="danger" (click)="logout()">Logout</ion-button>
 </ion-content>

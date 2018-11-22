@@ -3,4 +3,7 @@ export interface User {
    last: string;
    email: string;
    uid: string;
+   phone: string;
+   znumber: string;
+   favorite?: string;
 }

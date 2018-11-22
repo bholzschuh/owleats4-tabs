@@ -4,4 +4,7 @@ export interface UserRegister {
    email: string;
    password: string;
    uid: string;
+   znumber: string;
+   favorite?: string;
+   phone: string;
 }

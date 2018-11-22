@@ -43,6 +43,8 @@ export class RegisterPage implements OnInit {
         Validators.required,
         Validators.email,
       ])],
+      phone: ['', Validators.required],
+      znumber: ['', Validators.required],
       password: ['', Validators.compose([
         Validators.required,
         Validators.minLength(8),

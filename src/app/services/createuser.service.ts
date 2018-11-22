@@ -15,11 +15,13 @@ export class CreateuserService {
     private afS: AngularFirestore,
   ) { }
 
-  addUser(value, uid) {
-    this.user.first = value.first;
-    this.user.last = value.last;
-    this.user.email = value.email;
+  addUser(user, uid) {
     this.user.uid = uid;
+    this.user.first = user.first;
+    this.user.last = user.last;
+    this.user.email = user.email;
+    this.user.phone = user.phone;
+    this.user.znumber = user.znumber;
     this.afS.collection("users").doc(uid).set(this.user);
   }
 }
