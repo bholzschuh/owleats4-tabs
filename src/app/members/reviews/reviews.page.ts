@@ -26,9 +26,7 @@ export class ReviewsPage implements OnInit {
   ngOnInit() {
     this.rname = this.routerAct.snapshot.paramMap.get('rname');
     this.rid = this.routerAct.snapshot.paramMap.get('rid');
-    this.reviewService.getReviews(this.rid).subscribe(res => {
-      console.log(res);
-    });
+    this.reviews = this.reviewService.getReviews(this.rid);
   }
 
   async presentPopover(ev: any) {
@@ -42,6 +40,14 @@ export class ReviewsPage implements OnInit {
       cssClass: 'popWidth',
     });
     return await popover.present();
+  }
+
+  loop(i) {
+    let arr = [];
+    for (let j = 0; j < i; i++) {
+      arr.push(1);
+    }
+    return arr;
   }
 
 }

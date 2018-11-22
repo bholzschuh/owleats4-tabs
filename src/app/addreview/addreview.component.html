@@ -26,10 +26,8 @@
       </ion-textarea>
     </ion-item>
 
-    <ion-item>
-      <ion-button expand="block" shape="round" [disabled]="reviewForm.invalid" (click)="addReview(review)">Submit
-      </ion-button>
-    </ion-item>
+    <ion-button expand="block" [disabled]="reviewForm.invalid" (click)="addReview(review)">Submit
+    </ion-button>
 
   </ion-list>
 
