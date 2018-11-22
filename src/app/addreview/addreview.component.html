@@ -11,7 +11,8 @@
 
     <ion-item>
       <ion-label>Rating</ion-label>
-      <ion-select placeholder="Select One" formControlName="rating" [(ngModel)]="review.rating">
+      <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="Select One"
+        formControlName="rating" [(ngModel)]="review.rating">
         <ion-select-option value="1">1</ion-select-option>
         <ion-select-option value="2">2</ion-select-option>
         <ion-select-option value="3">3</ion-select-option>

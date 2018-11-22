@@ -27,10 +27,14 @@
 
   <ion-item>
     <ion-textarea position="stacked" placeholder="Favorite Restaurant:"></ion-textarea>
-    <ion-select placeholder="Select One" ok-text="Okay" cancel-text="Dismiss">
-      <ion-select-option value="Wendys">Wendy's</ion-select-option>
+    <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="Select One" ok-text="Okay"
+      cancel-text="Dismiss">
+      <ion-select-option value="Blendz Cafe">Blendz Cafe</ion-select-option>
+      <ion-select-option value="ChickNGrill">Chick-N-Grill</ion-select-option>
+      <ion-select-option value="Einstein's">Einstein's</ion-select-option>
+      <ion-select-option value="JowJing">Jow Jing</ion-select-option>
       <ion-select-option value="PapaJohns">Papa John's</ion-select-option>
-      <ion-select-option value="ChickNGrill">Chick -N- Grill</ion-select-option>
+      <ion-select-option value="Wendys">Wendy's</ion-select-option>
     </ion-select>
   </ion-item>
 
