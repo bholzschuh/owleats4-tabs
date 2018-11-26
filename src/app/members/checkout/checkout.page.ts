@@ -64,4 +64,14 @@ getTotal(cid){
   
 }
 
+getGrandTotal(){
+
+  var n = 0;
+
+  for(let cart of this.carts)
+    n = +n + +this.getTotal(cart.cart.cid);
+
+  return n;
+  
+}
 }
