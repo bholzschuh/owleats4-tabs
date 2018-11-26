@@ -42,11 +42,17 @@ export class ReviewsPage implements OnInit {
     return await popover.present();
   }
 
-  loop(i) {
-    let arr = [];
-    for (let j = 0; j < i; i++) {
-      arr.push(1);
+  getRating(rating: number) {
+
+    let arr: number[] = [];
+
+    for (let i = 0; i < 5; i++ , rating--) {
+      if (rating > 0)
+        arr.push(1);
+      else
+        arr.push(0);
     }
+
     return arr;
   }
 
