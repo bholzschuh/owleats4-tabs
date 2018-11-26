@@ -35,9 +35,6 @@ export class CheckoutPage implements OnInit {
           else
             this.carts[i] = {cart,item};
 
-
-            //console.log('WE ARE HYAAA ' + this.carts[0]);
-
         })
       }
     })
@@ -60,7 +57,7 @@ getTotal(cid){
   console.log('getting total for ' + i);
 
   for(let item of this.carts[i].item){
-    n = +n +  +item.cost;
+    n = +n +  (+item.cost * +item.quantity);
     console.log('this item is ' + item.cost)
   }
   return n.toFixed(2);
