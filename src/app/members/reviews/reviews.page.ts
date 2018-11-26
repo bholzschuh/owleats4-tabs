@@ -54,8 +54,12 @@ export class ReviewsPage implements OnInit {
 
     let arr: number[] = [];
 
-    for(let i = 0; i < rating; i++)
+    for(let i = 0; i < 5; i++,rating--){
+    if(rating>0)
     arr.push(1);
+    else
+    arr.push(0);
+    }
 
     return arr;
   }
