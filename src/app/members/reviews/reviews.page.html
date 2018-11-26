@@ -21,28 +21,7 @@
           <div *ngIf="review.rating == 1">
             <ion-icon name="star"></ion-icon>
           </div>
-          <div *ngIf="review.rating == 2">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-          </div>
-          <div *ngIf="review.rating == 3">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-          </div>
-          <div *ngIf="review.rating == 4">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-          </div>
-          <div *ngIf="review.rating == 5">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-          </div>
+          <ion-icon ion-icon name="star" color="secondary" *ngFor='let in of getRating(review.rating)'></ion-icon>
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content mode="md">

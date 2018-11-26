@@ -50,4 +50,14 @@ export class ReviewsPage implements OnInit {
     return arr;
   }
 
+  getRating(rating: number){
+
+    let arr: number[] = [];
+
+    for(let i = 0; i < rating; i++)
+    arr.push(1);
+
+    return arr;
+  }
+
 }
