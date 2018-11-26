@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid *ngFor="let cart of carts">
+          <ion-row><h1>{{cart.cart.rname}}</h1></ion-row>
+            <ion-row>
+              <ion-col>
+                <h3>Item</h3>
+              </ion-col>
+              <ion-col>
+                <h3>Quantity</h3>
+              </ion-col>
+              <ion-col>
+                <h3>Price</h3>
+              </ion-col>
+            </ion-row>
+      <ion-row *ngFor="let item of cart.item">
+          <ion-col>
+              {{item.name}}
+          </ion-col>
+          <ion-col>
+              {{item.quantity}}
+          </ion-col>
+          <ion-col>
+              ${{item.cost}}
+          </ion-col>
+      </ion-row>
+      <ion-row><b>total: </b>${{getTotal(cart.cart.cid)}}</ion-row>
+      </ion-grid>
+
+</ion-content>

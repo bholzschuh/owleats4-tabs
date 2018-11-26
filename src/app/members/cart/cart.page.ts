@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../../models/cart';
 import { CartService } from '../../services/cart.service';
 import { Item } from '../../models/item';
@@ -15,6 +16,7 @@ export class CartPage implements OnInit {
 
   constructor(
     private cartservice: CartService,
+    private route: Router,
   ) { }
 
   ngOnInit() {
@@ -57,6 +59,13 @@ export class CartPage implements OnInit {
 
 remove(itemID, cid){ this.cartservice.deleteItem(itemID, cid);}
 
+
+checkout() {
+
+  let url = "members/tabs/(cart:checkout)";
+  this.route.navigateByUrl(url);
 }
 
+getCart(){return this.filledCarts;}
 
+}

@@ -13,6 +13,7 @@ import { ReviewsPageModule } from '../reviews/reviews.module';
 import { CartPageModule } from '../cart/cart.module';
 import { ProfilePageModule } from '../profile/profile.module';
 import { RestaurantsPageModule } from '../restaurants/restaurants.module';
+import { CheckoutPageModule } from '../checkout/checkout.module';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { RestaurantsPageModule } from '../restaurants/restaurants.module';
     MenuPageModule,
     ItemviewPageModule,
     ReviewsPageModule,
+    CheckoutPageModule,
   ],
   declarations: [TabsPage]
 })
