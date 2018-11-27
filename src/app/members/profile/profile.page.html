@@ -6,27 +6,27 @@
   </ion-card-header>
 
   <ion-item>
-    <ion-textarea position="stacked" placeholder="Student Name"></ion-textarea>
-    <ion-label color="dark">{{user.first}}{{user.last}}</ion-label>
+    <ion-label color="dark">Student Name</ion-label>
+    {{user.first}} {{user.last}}
   </ion-item>
 
   <ion-item>
-    <ion-textarea position="stacked" placeholder="E-mail Address"></ion-textarea>
-    <ion-label color="dark">{{user.email}}</ion-label>
+    <ion-label color="dark">E-mail</ion-label>
+    {{user.email}}
   </ion-item>
 
   <ion-item>
-    <ion-textarea position="stacked" placeholder="Z-Number"></ion-textarea>
-    <ion-label color="dark">{{user.znumber}}</ion-label>
+    <ion-label color="dark">Z-Number:</ion-label>
+    {{user.znumber}}
   </ion-item>
 
   <ion-item>
-    <ion-textarea position="stacked" placeholder="Phone Number"></ion-textarea>
-    <ion-label color="dark">{{user.phone}}</ion-label>
+    <ion-label color="dark">Phone Number</ion-label>
+    {{user.phone}}
   </ion-item>
 
   <ion-item>
-    <ion-textarea position="stacked" placeholder="Favorite Restaurant:"></ion-textarea>
+    <ion-label color="dark">Favorite Restaurant</ion-label>
     <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="Select One" ok-text="Okay"
       cancel-text="Dismiss">
       <ion-select-option value="Blendz Cafe">Blendz Cafe</ion-select-option>
@@ -39,10 +39,9 @@
   </ion-item>
 
   <ion-item>
-    <ion-textarea position="stacked" placeholder="Remaining Owl Bucks balance: "></ion-textarea>
-    <ion-label color="dark">$0</ion-label>
+    <ion-label color="dark">Owl-Bucks Balance</ion-label>
+    $0
   </ion-item>
-
 
   <ion-button expand="block" shape="round" color="danger" (click)="logout()">Logout</ion-button>
 </ion-content>
