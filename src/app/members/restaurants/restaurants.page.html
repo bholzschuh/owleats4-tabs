@@ -1,13 +1,9 @@
-<ion-content padding class="owl-styles1">
-
+<ion-content padding class="card-background-page">
   <div *ngFor="let vendor of vendors | async">
     <ion-card (click)=getMenu(vendor) mode="md">
-      <ion-img class="pics" [src]="vendor.url"></ion-img>
-      <ion-card-header>
-        <ion-card-title mode="md">{{vendor.name}}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content mode="md">{{vendor.description}}</ion-card-content>
+      <ion-img [src]="vendor.url"></ion-img>
+      <div class="card-title">{{vendor.name}}</div>
     </ion-card>
   </div>
-
 </ion-content>
+

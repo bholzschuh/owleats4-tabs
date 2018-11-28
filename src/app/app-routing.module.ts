@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'itemview', loadChildren: './members/itemview/itemview.module#ItemviewPageModule' },
   { path: 'reviews', loadChildren: './members/reviews/reviews.module#ReviewsPageModule' },
   { path: 'checkout', loadChildren: './members/checkout/checkout.module#CheckoutPageModule' },
-
+  { path: 'modal', loadChildren: './members/modal/modal.module#ModalPageModule' },
+  
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

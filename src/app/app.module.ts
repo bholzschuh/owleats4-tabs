@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AddreviewComponent } from './addreview/addreview.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalPageModule } from './members/modal/modal.module';
 
 @NgModule({
   declarations: [AppComponent, AddreviewComponent],
@@ -29,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
+    ModalPageModule,
     //IonicStorageModule.forRoot(),
   ],
   providers: [

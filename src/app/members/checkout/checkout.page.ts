@@ -3,6 +3,8 @@ import { CartService } from '../../services/cart.service';
 import { CartPage } from '../cart/cart.page';
 import { Cart } from '../../models/cart';
 import { Item } from '../../models/item';
+import { IonicModule, NavController, ModalController } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
 
 @Component({
   selector: 'app-checkout',
@@ -13,11 +15,7 @@ export class CheckoutPage implements OnInit {
 
   carts: any[] = [];
 
-  constructor(
-    private cartService: CartService,
-  ) { 
-
-  }
+  constructor(private cartService: CartService,private nav: NavController, private modalCtrl: ModalController, ) { }
 
   ngOnInit() {    
 
@@ -73,5 +71,15 @@ getGrandTotal(){
 
   return n;
   
+}
+
+async openModal(){
+  const modal = await this.modalCtrl.create({
+    component: ModalPage,
+    componentProps:{
+      value: 123
+    }
+  });
+  return await modal.present();
 }
 }
